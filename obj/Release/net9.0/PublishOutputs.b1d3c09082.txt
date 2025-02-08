@@ -1,0 +1,7 @@
+C:\Users\DaniloBustillo\Desktop\ASP_CORE\Full_core\out\Full_core.exe
+C:\Users\DaniloBustillo\Desktop\ASP_CORE\Full_core\out\appsettings.Development.json
+C:\Users\DaniloBustillo\Desktop\ASP_CORE\Full_core\out\appsettings.json
+C:\Users\DaniloBustillo\Desktop\ASP_CORE\Full_core\out\Full_core.dll
+C:\Users\DaniloBustillo\Desktop\ASP_CORE\Full_core\out\Full_core.deps.json
+C:\Users\DaniloBustillo\Desktop\ASP_CORE\Full_core\out\Full_core.runtimeconfig.json
+C:\Users\DaniloBustillo\Desktop\ASP_CORE\Full_core\out\Full_core.pdb
