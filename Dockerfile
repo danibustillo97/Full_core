@@ -5,7 +5,7 @@ COPY . .
 RUN dotnet publish -c Release -o out
 
 # Etapa de ejecución
-FROM mcr.microsoft.com/dotnet/aspnet:8.0
+FROM mcr.microsoft.com/dotnet/aspnet:9.0
 WORKDIR /app
 COPY --from=build /app/out .
 ENTRYPOINT ["dotnet", "Full_core.dll"]
