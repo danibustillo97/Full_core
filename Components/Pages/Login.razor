@@ -1,0 +1,55 @@
+@page "/login"
+
+@using System.ComponentModel.DataAnnotations
+
+<EditForm Model="@loginModel" OnValidSubmit="HandleLogin">
+    <DataAnnotationsValidator />
+    
+    <div class="card p-4 shadow-lg login-container">
+        <h3 class="text-center">Iniciar sesión</h3>
+        
+        <div class="mb-3">
+            <label class="form-label">Correo Electrónico</label>
+            <InputText class="form-control" @bind-Value="loginModel.Email" />
+            <ValidationMessage For="@(() => loginModel.Email)" class="text-danger" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Contraseña</label>
+            <InputText type="password" class="form-control" @bind-Value="loginModel.Password" />
+            <ValidationMessage For="@(() => loginModel.Password)" class="text-danger" />
+        </div>
+
+        <div class="mb-3 form-check">
+            <InputCheckbox class="form-check-input" @bind-Value="loginModel.RememberMe" />
+            <label class="form-check-label">Recordarme</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+        <div class="text-center mt-2">
+            <a href="/forgot-password">¿Olvidaste tu contraseña?</a>
+        </div>
+    </div>
+</EditForm>
+
+@code {
+    private LoginModel loginModel = new();
+    
+    private async Task HandleLogin()
+    {
+        // Aquí irá la lógica de autenticación con PostgreSQL
+        await Task.Run(() => Console.WriteLine($"Login con: {loginModel.Email}, Recordarme: {loginModel.RememberMe}"));
+    }
+
+    private class LoginModel
+    {
+        [Required(ErrorMessage = "El correo es obligatorio")]
+        [EmailAddress(ErrorMessage = "Correo inválido")]
+        public string Email { get; set; } = string.Empty;
+        
+        [Required(ErrorMessage = "La contraseña es obligatoria")]
+        public string Password { get; set; } = string.Empty;
+        
+        public bool RememberMe { get; set; }
+    }
+}
